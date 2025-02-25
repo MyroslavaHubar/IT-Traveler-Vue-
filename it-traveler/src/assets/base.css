@@ -2,6 +2,7 @@
 
 @theme {
   --color-primary: #f3743d;
+  --color-gray-50: #939393;
 }
 
 @layer base {
@@ -35,7 +36,7 @@
 } */
 
 /* semantic color variables for this project */
-:root {
+/* :root {
   --color-background: var(--vt-c-white);
   --color-background-soft: var(--vt-c-white-soft);
   --color-background-mute: var(--vt-c-white-mute);
@@ -61,7 +62,7 @@
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--vt-c-text-dark-2);
   }
-}
+} */
 
 *,
 *::before,
@@ -90,7 +91,7 @@ body {
     'Droid Sans',
     'Helvetica Neue',
     sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

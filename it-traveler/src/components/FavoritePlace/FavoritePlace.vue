@@ -5,7 +5,7 @@ import EditIcon from './EditIcon.vue'
 </script>
 
 <template>
-  <section class="mb-6 last:mb-0 text-[#939393]">
+  <section class="mb-6 last:mb-0 text-gray-50">
     <div class="flex gap-4">
       <img class="w-[76px] h-[76px] shrink-0" src="" alt="" />
       <div>
