@@ -1,7 +1,6 @@
 <script setup>
-import { ref } from 'vue'
-
 const props = defineProps({
+  modelValue: String,
   label: String,
   placeholder: String,
   type: {
@@ -10,11 +9,11 @@ const props = defineProps({
   },
 })
 
-const text = ref('')
+defineOptions({
+  inheritAttrs: false,
+})
 
-const changeValue = (event) => {
-  text.value = event.target.value
-}
+const emit = defineEmits(['update:modelValue'])
 </script>
 
 <template>
@@ -24,7 +23,8 @@ const changeValue = (event) => {
       <input
         class="w-full text-sm rounded-[4px] border-[#eaeaea] border-[1px] py-2 px-3 focus:outline-primary"
         v-bind="{ ...$props, ...$attrs }"
-        @input="changeValue"
+        :value="modelValue"
+        @input="emit('update:modelValue', $event.target.value)"
       />
     </label>
   </div>
