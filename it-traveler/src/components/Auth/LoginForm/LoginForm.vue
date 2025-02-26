@@ -1,5 +1,5 @@
 <script setup>
-import IInput from '@/components/IInput/IInput/IInput.vue'
+import IInput from '@/components/IInput/IInput.vue'
 import FormContainer from '../FormContainer.vue'
 import { reactive, toRaw } from 'vue'
 import IButton from '@/components/IButton/IButton.vue'
