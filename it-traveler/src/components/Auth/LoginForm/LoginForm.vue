@@ -1,6 +1,5 @@
 <script setup>
 import IInput from '@/components/IInput/IInput.vue'
-import FormContainer from '../FormContainer.vue'
 import { reactive, toRaw } from 'vue'
 import IButton from '@/components/IButton/IButton.vue'
 
@@ -12,14 +11,19 @@ const userData = reactive({
 </script>
 
 <template>
-  <FormContainer @submit.prevent="emit('submit', toRaw(userData))">
+  <form @submit.prevent="emit('submit', toRaw(userData))">
     <IInput
       class="mb-4"
       label="Електронна пошта"
       placeholder="email@gmail.com"
       v-model="userData.email"
     />
-    <IInput label="Пароль" type="password" v-model="userData.password" />
+    <IInput
+      label="Пароль"
+      type="password"
+      placeholder="*************"
+      v-model="userData.password"
+    />
     <IButton class="mt-10 w-full" variant="gradient" type="submit">Увійти</IButton>
-  </FormContainer>
+  </form>
 </template>

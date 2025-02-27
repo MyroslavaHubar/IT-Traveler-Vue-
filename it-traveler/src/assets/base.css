@@ -3,6 +3,7 @@
 @theme {
   --color-primary: #f3743d;
   --color-gray-50: #939393;
+  --color-gray-100: rgba(44, 44, 44, 0.2);
 }
 
 @layer base {
