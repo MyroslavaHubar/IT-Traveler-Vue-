@@ -7,6 +7,10 @@ const props = defineProps({
     required: true,
     type: Array,
   },
+  activeId: {
+    required: true,
+    type: [Number, null],
+  },
 })
 
 // const buttonVariant = ref('gradient')
@@ -26,6 +30,7 @@ const props = defineProps({
         :title="place.title"
         :description="place.description"
         :img="place.img"
+        :is-active="place.id === props.activeId"
       />
     </slot>
     <slot></slot>

@@ -4,6 +4,7 @@ import { MapboxMap, MapboxMarker } from '@studiometa/vue-mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { mapSettings } from './map/settings'
 import MarkerIcon from './components/icons/MarkerIcon.vue'
+import { ref } from 'vue'
 
 const favouritePlaces = [
   {
@@ -22,10 +23,10 @@ const favouritePlaces = [
   },
 ]
 
-// import { ref } from 'vue'
-// import LoginForm from './components/Auth/LoginForm/LoginForm.vue'
-// import RegistrationForm from './components/Auth/RegistrationForm/RegistrationForm.vue'
-// import CreateNewPlaceModal from './components/CreateNewPlaceModal/CreateNewPlaceModal.vue'
+const activeId = ref(null)
+const changeActiveId = (id) => {
+  activeId.value = id
+}
 
 // const isOpen = ref(true)
 // const closeModal = () => {
@@ -35,15 +36,12 @@ const favouritePlaces = [
 // const openModal = () => {
 //   isOpen.value = true
 // }
-
-// import FavoritePlaces from '@/components/FavoritePlaces/FavoritePlaces.vue'
-// import HomepageView from './views/HomepageView.vue'
 </script>
 
 <template>
   <main class="flex h-screen">
     <div class="bg-white h-screen w-[400px] shrink-0 overflow-auto pb-10">
-      <FavoritePlaces :items="favouritePlaces" />
+      <FavoritePlaces :items="favouritePlaces" :active-id="activeId" />
     </div>
     <div class="w-full h-full flex items-center justify-center text-6xl">
       <MapboxMap
@@ -54,7 +52,9 @@ const favouritePlaces = [
         :map-style="mapSettings.style"
       >
         <MapboxMarker v-for="place in favouritePlaces" :key="place.id" :lngLat="place.lngLat">
-          <MarkerIcon class="h-8 w-8" />
+          <button @click="changeActiveId(place.id)">
+            <MarkerIcon class="h-8 w-8" />
+          </button>
         </MapboxMarker>
       </MapboxMap>
     </div>
