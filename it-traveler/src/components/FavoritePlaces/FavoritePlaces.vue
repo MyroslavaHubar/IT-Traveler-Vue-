@@ -13,6 +13,8 @@ const props = defineProps({
   },
 })
 
+const emit = defineEmits(['place-clicked'])
+
 // const buttonVariant = ref('gradient')
 
 // const changeButtonVariant = () => {
@@ -31,6 +33,7 @@ const props = defineProps({
         :description="place.description"
         :img="place.img"
         :is-active="place.id === props.activeId"
+        @click="emit('place-clicked', place.id)"
       />
     </slot>
     <slot></slot>

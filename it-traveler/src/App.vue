@@ -1,71 +1,11 @@
 <script setup>
-import FavoritePlaces from './components/FavoritePlaces/FavoritePlaces.vue'
-import { MapboxMap, MapboxMarker } from '@studiometa/vue-mapbox-gl'
-import 'mapbox-gl/dist/mapbox-gl.css'
-import { mapSettings } from './map/settings'
-import MarkerIcon from './components/icons/MarkerIcon.vue'
-import { ref } from 'vue'
-
-const favouritePlaces = [
-  {
-    id: 1,
-    title: 'New place 1',
-    description: 'Super description 1',
-    img: '',
-    lngLat: [30.523333, 50.490001],
-  },
-  {
-    id: 2,
-    title: 'New place 2',
-    description: 'Super description 2',
-    img: '',
-    lngLat: [30.523333, 50.450001],
-  },
-]
-
-const activeId = ref(null)
-const changeActiveId = (id) => {
-  activeId.value = id
-}
-
-// const isOpen = ref(true)
-// const closeModal = () => {
-//   isOpen.value = false
-// }
-
-// const openModal = () => {
-//   isOpen.value = true
-// }
+// import HomepageView from './views/HomepageView.vue'
+import AuthView from './views/AuthView.vue'
+// import GreetingView from './views/GreetingView.vue'
 </script>
 
 <template>
-  <main class="flex h-screen">
-    <div class="bg-white h-screen w-[400px] shrink-0 overflow-auto pb-10">
-      <FavoritePlaces :items="favouritePlaces" :active-id="activeId" />
-    </div>
-    <div class="w-full h-full flex items-center justify-center text-6xl">
-      <MapboxMap
-        class="w-full h-full"
-        :center="[30.523333, 50.450001]"
-        :zoom="10"
-        :access-token="mapSettings.apiToken"
-        :map-style="mapSettings.style"
-      >
-        <MapboxMarker v-for="place in favouritePlaces" :key="place.id" :lngLat="place.lngLat">
-          <button @click="changeActiveId(place.id)">
-            <MarkerIcon class="h-8 w-8" />
-          </button>
-        </MapboxMarker>
-      </MapboxMap>
-    </div>
-  </main>
+  <!-- <GreetingView /> -->
   <!-- <HomepageView /> -->
-  <!-- <div class="bg-white h-screen w-[400px]">
-    <FavoritePlaces />
-  </div> -->
-  <!-- <button @click="openModal">Click Modal</button>
-  <RegistrationForm @submit="console.log" />
-  <LoginForm @submit="console.log" /> -->
-  <!-- <IModal v-if="isOpen" @close="closeModal">Hello</IModal> -->
-  <!-- <CreateNewPlaceModal :is-open="isOpen" @close="closeModal" @submit="console.log" /> -->
+  <AuthView />
 </template>
